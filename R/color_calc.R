@@ -1,3 +1,4 @@
+#' @export
 light_calc <- function(hex, factor) {
     rgb <- as.vector(col2rgb(hex)[,1]) * (1+factor)
     if (any(rgb > 255)) {
