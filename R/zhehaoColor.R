@@ -7,9 +7,9 @@ source('R/palettes.R')
 #' @param n Number of Colors. If not specified, original palette will return, if n exceeds original palette, colors are automatically interpolated.
 #' @export
 zhehaoColor <- function(palette_id, n){
-  palette <- palettes[[palette_id]]
+  palette <- zhehaopalettes[[palette_id]]$clrs
   pl <- length(palette)
-  if (!missing(n)) {
+  if (missing(n)) {
     return(palette)
   } else if (n > pl) {
     color_ramp <- grDevices::colorRampPalette(palette)
@@ -19,3 +19,12 @@ zhehaoColor <- function(palette_id, n){
   }
 }
 
+#' @export
+zhehaoColorBg <- function(palette_id) {
+    return(zhehaopalettes[[palette_id]]$bg)
+}
+
+#' @export
+zhehaoPalette <- function(palette_id) {
+    return(zhehaopalettes[[palette_id]])
+}
